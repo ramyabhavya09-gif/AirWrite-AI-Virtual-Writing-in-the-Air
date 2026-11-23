@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirWrite AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">✍️ AirWrite <span>AI</span></div>
+    <div class="status" id="status">Camera Offline</div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <span class="tag">AI POWERED AIR WRITING</span>
+        <h1>Write in the <span>Air.</span></h1>
+        <p>
+            Turn your hand movements into digital drawings.
+            Write and draw using your finger without touching the screen.
+        </p>
+    </section>
+
+    <section class="workspace">
+
+        <!-- Camera -->
+        <div class="card camera-card">
+
+            <div class="card-header">
+                <h2>Live Camera</h2>
+                <span id="cameraStatus">OFFLINE</span>
+            </div>
+
+            <div class="camera-box">
+
+                <video id="video" autoplay playsinline></video>
+
+                <canvas id="cameraCanvas"></canvas>
+
+                <div id="cameraPlaceholder" class="placeholder">
+                    <div class="camera-icon">📷</div>
+                    <h3>Camera Not Started</h3>
+                    <p>Start the camera to begin air writing</p>
+                </div>
+
+            </div>
+
+            <div class="camera-buttons">
+                <button id="startBtn" class="primary-btn">
+                    ▶ Start Camera
+                </button>
+
+                <button id="stopBtn" class="secondary-btn" disabled>
+                    ■ Stop Camera
+                </button>
+            </div>
+
+            <div class="instructions">
+                <strong>How to write:</strong>
+                <p>☝️ Raise your index finger to draw.</p>
+                <p>✊ Fold your index finger to stop drawing.</p>
+            </div>
+
+        </div>
+
+        <!-- Drawing Canvas -->
+        <div class="card drawing-card">
+
+            <div class="card-header">
+                <h2>Air Writing Canvas</h2>
+                <span class="canvas-label">LIVE DRAWING</span>
+            </div>
+
+            <div class="toolbar">
+
+                <div class="colors">
+                    <button class="color-btn active"
+                        data-color="#8b7bff"
+                        style="background:#8b7bff"
+                        title="Purple"></button>
+
+                    <button class="color-btn"
+                        data-color="#00e5ff"
+                        style="background:#00e5ff"
+                        title="Cyan"></button>
+
+                    <button class="color-btn"
+                        data-color="#ff5e9c"
+                        style="background:#ff5e9c"
+                        title="Pink"></button>
+
+                    <button class="color-btn"
+                        data-color="#ffffff"
+                        style="background:#ffffff"
+                        title="White"></button>
+
+                    <button class="color-btn"
+                        data-color="#4ade80"
+                        style="background:#4ade80"
+                        title="Green"></button>
+                </div>
+
+                <div class="brush-control">
+                    <label for="brushSize">Brush</label>
+                    <input
+                        type="range"
+                        id="brushSize"
+                        min="2"
+                        max="20"
+                        value="5">
+                </div>
+
+            </div>
+
+            <canvas id="drawingCanvas"></canvas>
+
+            <div class="drawing-controls">
+
+                <button id="eraserBtn" class="secondary-btn">
+                    🧹 Eraser
+                </button>
+
+                <button id="undoBtn" class="secondary-btn">
+                    ↩ Undo
+                </button>
+
+                <button id="clearBtn" class="secondary-btn">
+                    🗑 Clear
+                </button>
+
+                <button id="saveBtn" class="primary-btn">
+                    ⬇ Save Drawing
+                </button>
+
+            </div>
+
+            <p class="canvas-tip">
+                Move your index finger to draw on the canvas.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <h2>How AirWrite AI Works</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                <span>👁️</span>
+                <h3>Hand Detection</h3>
+                <p>AI detects your hand through the webcam.</p>
+            </div>
+
+            <div class="feature">
+                <span>☝️</span>
+                <h3>Finger Tracking</h3>
+                <p>Tracks your index finger movement.</p>
+            </div>
+
+            <div class="feature">
+                <span>✍️</span>
+                <h3>Air Writing</h3>
+                <p>Converts movement into digital strokes.</p>
+            </div>
+
+            <div class="feature">
+                <span>💾</span>
+                <h3>Save Drawing</h3>
+                <p>Download your digital artwork.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        AirWrite AI · Computer Vision Project
+    </footer>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
